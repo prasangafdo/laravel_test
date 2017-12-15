@@ -15,7 +15,7 @@ class CreateStudentDetailsTable extends Migration
     {
         Schema::create('student_details', function (Blueprint $table) {
             $table->increments('student_id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->integer('grade');
             $table->integer('parent_contact_num');
             $table->foreign('user_id')->references('user_id')->on('user_details');
