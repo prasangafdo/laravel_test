@@ -16,10 +16,11 @@ class CreateUsersTable extends Migration
         if (!Schema::hasTable('users')) {//If "uers" table is not exists
      
          Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
+              $table->increments('user_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('user_address');
+            $table->date('date_of_birth');
             $table->rememberToken();
             $table->timestamps();
         });
