@@ -20,6 +20,10 @@ Route::get('/prasanga', function () {
     return view('home');//This navigates to the Home panel (Warning! Login scripts aren't included here.)
 });
 
+Route::get('/prasanga2', function(){
+    return "<h2>This is Prasanga2</h2>";
+});
+
 Route::get('/users_extracted', function () {
     $users = App\User::all();
     foreach ($users as $user) {
