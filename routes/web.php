@@ -20,6 +20,17 @@ Route::get('/prasanga', function () {
     return view('home');//This navigates to the Home panel (Warning! Login scripts aren't included here.)
 });
 
+Route::get('/users_extracted', function () {
+    $users = App\User::all();
+    foreach ($users as $user) {
+    	echo $user->last_name;
+    }//This echos the last_name in the user table (Extracted from json format)
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
