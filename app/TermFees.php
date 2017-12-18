@@ -13,4 +13,8 @@ class TermFees extends Model
     	'next_due_date',
     	'fee'
     ];
+
+    public function student(){
+        return $this->hasMany('App\Students');
+    }
 }

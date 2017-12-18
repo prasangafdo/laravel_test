@@ -11,4 +11,12 @@ class Students extends Model
     	'grade',
     	'parent_contact_num'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function term_fee(){
+        return $this->belongsTo('App\TermFees');
+    }
 }
