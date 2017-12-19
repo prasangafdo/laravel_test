@@ -15,6 +15,10 @@ class UsersController extends Controller
     public function index()
     {
         //
+        $users = User::all();//Getting all the companies
+        return view('users.index', ['users'=>$users]);//Sending the value to the view. (Make sure to send the same name as the view)
+        //It should be "=" not "-"
+        
     }
 
     /**
