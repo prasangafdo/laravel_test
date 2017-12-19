@@ -34,6 +34,26 @@ Route::get('/users_extracted', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//We only need one of these. 
+
+//Configuring controllers
+//Partial resource routes
+Route::resource('Users', 'UsersController');
+Route::resource('Students', 'StudentsController');
+Route::resource('UserRole', 'UserRoleController');
+Route::resource('TermFees', 'TermFeesController');
+
+/*Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -46,15 +66,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+*/
