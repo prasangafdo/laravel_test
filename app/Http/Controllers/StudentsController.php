@@ -15,6 +15,8 @@ class StudentsController extends Controller
     public function index()
     {
         //
+        $students = Students::all();
+        return view('students.index', ['students'=>$students]);
     }
 
     /**
@@ -47,6 +49,7 @@ class StudentsController extends Controller
     public function show(Students $students)
     {
         //
+
     }
 
     /**
