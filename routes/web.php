@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::get('/prasanga', function () {
     //return "<h1 class = text-danger> This is Prabodha on \"prasanga route\"</h1>"; //This prints the keywords.
     return view('home');//This navigates to the Home panel (Warning! Login scripts aren't included here.)
@@ -30,6 +30,7 @@ Route::get('/users_extracted', function () {
     	echo $user->last_name;
     }//This echos the last_name in the user table (Extracted from json format)
 });
+*/
 
 Auth::routes();
 
