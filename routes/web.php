@@ -39,8 +39,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Configuring controllers
 //Partial resource routes
-Route::resource('Users', 'UsersController');
-Route::resource('Students', 'StudentsController');
+Route::resource('users', 'UsersController');
+Route::resource('students', 'StudentsController');
 Route::resource('UserRole', 'UserRoleController');
 Route::resource('TermFees', 'TermFeesController');
 
