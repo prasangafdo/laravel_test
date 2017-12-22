@@ -9,39 +9,33 @@
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">{{$usera->first_name}}</h3>
+        <h3 class="text-muted"></h3><!--Setting the name-->
       </div>
 
       <div class="jumbotron">
-        <h1>Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+        <h1>{{$user_details->first_name." ".$user_details->last_name}}</h1>
+       
+    
+        <p class="lead">{{$user_details->user_role}}</p>
+
+      <!--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
       </div>
 
       <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+      <div class="col-md-6 col-lg-8 col-lg-offset-2">
+      <div class="panel panel-primary">
+          <div class="panel-heading">All Users</div>
+      <div class="panel-body">
+          
+          <ul class="list-group">
+             
+          <li class="list-group-item"><a href ="/users/{{$user_details->first_name}}">{{'User details will show here'}}</li><!-- This will return the full name from the database-->
+          </ul>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+  </div>
         </div>
 
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-
+        
       <footer class="footer">
         <p>© 2016 Company, Inc.</p>
       </footer>

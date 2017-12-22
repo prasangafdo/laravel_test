@@ -37,6 +37,6 @@ class User extends Authenticatable
     }
 
     public function userRole(){
-        return $this->belongsTo('App\UserRole');//Has a in ER diagram
+        return $this->hasMany('App\UserRole');//Has a in ER diagram
     }
 }

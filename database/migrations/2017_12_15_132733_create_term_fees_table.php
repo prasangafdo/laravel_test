@@ -20,7 +20,7 @@ class CreateTermFeesTable extends Migration
             $table->date('paid_date');
             $table->date('next_due_date');
             $table->integer('fee');
-            $table->foreign('student_id')->references('student_id')->on('students');
+            $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
         });
     }

@@ -57,7 +57,7 @@ class UsersController extends Controller
         //or
         $user= User::find($user->id);//Check the migration
 
-        return view('users.show', ['usera'=>$user]);
+        return view('users.show', ['user_details'=>$user]);
     }
 
     /**
