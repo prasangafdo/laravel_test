@@ -13,29 +13,45 @@
       </div>
 
       <div class="jumbotron">
-        <h1>{{$user_details->first_name." ".$user_details->last_name}}</h1>
-       
-    
-        <p class="lead">{{$user_details->user_role}}</p>
+      @foreach($details as $dd)
+      <h1>{{$dd->first_name." ".$dd->last_name}}</h1>
+      @endforeach()
+     
 
       <!--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
       </div>
 
-      <div class="row marketing">
-      <div class="col-md-6 col-lg-8 col-lg-offset-2">
-      <div class="panel panel-primary">
-          <div class="panel-heading">All Users</div>
-      <div class="panel-body">
-          
-          <ul class="list-group">
-             
-          <li class="list-group-item"><a href ="/users/{{$user_details->first_name}}">{{'User details will show here'}}</li><!-- This will return the full name from the database-->
-          </ul>
-
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">User Details</div>
+  <div class="panel-body">
+    <p>This table shows the details of each and every user</p>
   </div>
-        </div>
 
-        
+  <!-- Table -->
+    <div class=" col-lg-8 col-lg-offset-2">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Date of Birth</th>
+                <th>User Role</th>
+            </tr>
+            @foreach($details as $details)
+            <tr>
+                <td>{{$details->first_name." ".$details->last_name}}</td>
+                <td>{{$details->user_address}}</td>
+                <td>{{$details->date_of_birth}}</td>
+                <td>{{$details->user_role}}</td>
+            </tr>
+            @endforeach
+            <!--<th>- Table heading-->
+            <!--<th>- Table data-->
+        </table>
+    </div>
+</div>
+
+    <hr/>    
       <footer class="footer">
         <p>© 2016 Company, Inc.</p>
       </footer>

@@ -55,9 +55,16 @@ class UsersController extends Controller
         //either
         //$user = User::where('id', $user->id)->first();//We are looking for the first occourence
         //or
-        $user= User::find($user->id);//Check the migration
+       // $user= User::find($user->id);//Check the migration
 
-        return view('users.show', ['user_details'=>$user]);
+       // return view('users.show', ['user_details'=>$user]);
+       
+       $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
+        ->get()
+        ->where('user_id', '=', $user->id);
+        return view('users.show', ['details'=>$user_details]);
+       // return ($user_details);
+
     }
 
     /**
