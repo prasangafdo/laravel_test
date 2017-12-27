@@ -15,8 +15,19 @@ class StudentsController extends Controller
     public function index()
     {
         //
-        $students = Students::all();
-        return view('students.index', ['students'=>$students]);
+       // $students = Students::all();
+       // return view('students.index', ['students'=>$students]);
+
+       //Join students and users
+        $user_details =  Students::join('users', 'users.id', '=', 'students.user_id')
+        ->select('students.id as student_id', 'users.*')
+        ->get();//Since we have the student id here, it's already a student. So no need a where clause
+        return view('students.index', ['students'=>$user_details]);
+       //return ($user_details);
+    
+
+     //$users = Students::all();//Getting all the companies
+     //   return view('students.index', ['students'=>$users]);//Sending the value to the view. (Make sure to send the same name as the view)
     }
 
     /**
@@ -27,6 +38,7 @@ class StudentsController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -46,9 +58,16 @@ class StudentsController extends Controller
      * @param  \App\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function show(Students $students)
+    public function show(Students $student)
     {
         //
+       // $user_details =  Students::join('users', 'students.user_id', '=', 'users.id')
+      //  ->get();
+       // ->where('id', '=', $students->id);//This includes the user_id
+        return ($student);
+
+
+        
 
     }
 
@@ -58,7 +77,7 @@ class StudentsController extends Controller
      * @param  \App\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function edit(Students $students)
+    public function edit(Students $student)
     {
         //
     }
@@ -70,7 +89,7 @@ class StudentsController extends Controller
      * @param  \App\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Students $students)
+    public function update(Request $request, Students $student)
     {
         //
     }
@@ -81,7 +100,7 @@ class StudentsController extends Controller
      * @param  \App\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Students $students)
+    public function destroy(Students $student)
     {
         //
     }

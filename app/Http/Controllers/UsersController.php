@@ -59,12 +59,13 @@ class UsersController extends Controller
 
        // return view('users.show', ['user_details'=>$user]);
        
-       $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
+      /* $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
         ->get()
-        ->where('user_id', '=', $user->id);
+        ->where('user_id', '=', $user->id);//This includes the user_id
         return view('users.show', ['details'=>$user_details]);
        // return ($user_details);
-
+*/
+return($user);
     }
 
     /**
