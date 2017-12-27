@@ -61,13 +61,11 @@ class StudentsController extends Controller
     public function show(Students $student)
     {
         //
-       // $user_details =  Students::join('users', 'students.user_id', '=', 'users.id')
-      //  ->get();
-       // ->where('id', '=', $students->id);//This includes the user_id
-        return ($student);
-
-
-        
+        $student_details =  Students::join('users', 'students.user_id', '=', 'users.id')
+        ->select('students.*','students.id as student_id' , 'users.*')
+        ->get()
+        ->where('student_id', '=', $student->id);//This includes the user_id
+        return view('students.show', ['student_details'=>$student_details]);
 
     }
 

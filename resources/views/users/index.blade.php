@@ -9,7 +9,8 @@
             @foreach($users as $user)
         <li class="list-group-item"><a href ="/users/{{$user->id}}">{{$user->first_name." ".$user->last_name}}</li><!-- This will return the full name from the database-->
        <!-- {{$user->first_name}} This is the original version of retrieving data from the database-->
-        </ul>
             @endforeach
+        </ul>
+           
 </div>
 @endsection();<!--Ending the section-->
