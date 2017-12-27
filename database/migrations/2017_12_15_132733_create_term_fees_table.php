@@ -14,13 +14,13 @@ class CreateTermFeesTable extends Migration
     public function up()
     {
         Schema::create('term_fees', function (Blueprint $table) {
-            $table->increments('fees_id');
+            $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->boolean('is_paid');
             $table->date('paid_date');
             $table->date('next_due_date');
             $table->integer('fee');
-            $table->foreign('student_id')->references('student_id')->on('students');
+            $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         if (!Schema::hasTable('users')) {//If "uers" table is not exists
      
          Schema::create('users', function (Blueprint $table) {
-            $table->increments('user_id');
+            $table->increments('id');//We need to use 'id' if we are using 'find'. Better not to change the default
             $table->string('first_name');
             $table->string('last_name');
             $table->string('user_address');

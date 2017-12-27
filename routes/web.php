@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/roles', function(){
+return UserRole::all();
+});
 /*
 Route::get('/prasanga', function () {
     //return "<h1 class = text-danger> This is Prabodha on \"prasanga route\"</h1>"; //This prints the keywords.
@@ -39,10 +43,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Configuring controllers
 //Partial resource routes
-Route::resource('Users', 'UsersController');
-Route::resource('Students', 'StudentsController');
-Route::resource('UserRole', 'UserRoleController');
-Route::resource('TermFees', 'TermFeesController');
+Route::resource('users', 'UsersController');
+Route::resource('students', 'StudentsController');
+Route::resource('userRole', 'UserRoleController');
+Route::resource('termFees', 'TermFeesController');
 
 /*Auth::routes();
 

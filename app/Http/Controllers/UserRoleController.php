@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\UserRole;
+use App\User;//Remove this
 use Illuminate\Http\Request;
 
-class UserRolesController extends Controller
+class UserRoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,14 @@ class UserRolesController extends Controller
      */
     public function index()
     {
-        //
+        //Just for testing
+        $users = User::all();
+        $roles = UserRole::all();
+
+       // $selected = $users->roles;
+        //return $roles."<br/><hr/> ".$users;
+
+       // return   UserRole::find(1);
     }
 
     /**

@@ -49,11 +49,23 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //This selects the information regarging the user_id
-       // $user = User::where('user_id', $user->user_id);
+        //This selects the information regarding the user_id
+        //$user = User::where('user_id', $user->user_id);//This selects all the occurences
+        
+        //either
+        //$user = User::where('id', $user->id)->first();//We are looking for the first occourence
+        //or
+       // $user= User::find($user->id);//Check the migration
 
-      //  return view('users.show', ['user'=>$user]);
-      return view('users.show');
+       // return view('users.show', ['user_details'=>$user]);
+       
+      /* $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
+        ->get()
+        ->where('user_id', '=', $user->id);//This includes the user_id
+        return view('users.show', ['details'=>$user_details]);
+       // return ($user_details);
+*/
+return($user);
     }
 
     /**
