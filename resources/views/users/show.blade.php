@@ -60,6 +60,16 @@
             <h4>About</h4>
             <p style="text-align:center; font-size:14px">This is the web interface to Edit, Update and/or Delete records of the  <em>ABC International school Student Management System</em> </p>
           </div>
+
+          <div class="sidebar-module">
+            <h4>User Management</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Add</a></li>
+              <li><a href="/users/{{$details->id}}/edit">Edit</a></li>
+              <li><a href="#">Delete</a></li>
+            </ol>
+          </div>
+
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
@@ -77,19 +87,12 @@
               <li><a href="#">April 2013</a></li>
             </ol>
           </div>
-          <div class="sidebar-module">
-            <h4>Elsewhere</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
-            </ol>
-          </div>
+          
 </div>
 
 <hr/>    
-      <footer class="footer">
-        <p>© 2016 Company, Inc.</p>
+      <footer class="footer col-sm-7 col-sm-offset-3">
+        <p style="text-align:center">© 2018 Company, Inc.</p>
       </footer>
 
     @endsection()

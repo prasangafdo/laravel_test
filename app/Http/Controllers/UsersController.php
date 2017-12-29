@@ -76,6 +76,15 @@ class UsersController extends Controller
     public function edit(User $user)
     {
         //
+       // $user_details =  User::all();
+        //return view('users.edit', ['details'=>$user_details]);
+
+        $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
+        ->get()
+        ->where('user_id', '=', $user->id);//This includes the user_id
+        return view('users.edit', ['details'=>$user_details]);
+
+        //return ($user_details);
     }
 
     /**
@@ -87,7 +96,20 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        //Update data
+
+        $userUpdate = User::where('id', $user->id)
+                            ->update([
+                                'first_name'=>$request->input('first_name'),//Here coms the name of the object
+                                'last_name'=>$request->input('last_name'),
+                                'user_address'=>$request->input('user_address'),
+                                'date_of_birth'=>$request->input('date_of_birth')
+                            ]);
+        if($userUpdate){
+            return redirect()->route('users.show',  ['details'=>$user])
+            ->with('success', 'user updated successfully');//Return message
+        }                        
+        return back()->withInput();
     }
 
     /**
