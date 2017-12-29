@@ -27,6 +27,7 @@
              <input type="text" 
                     required
                     id="first-name"
+                    name="first_name"
                     class="form-control" 
                     placeholder="First Name"
                     value="{{$details->first_name}}"><!--Name is the fillable (Need to add them)-->
@@ -35,7 +36,8 @@
               <label for="last-name">Last Name</label>
              <input type="text"
                     required
-                    id="last-name" 
+                    id="last-name"
+                    name="last_name" 
                     class="form-control" 
                     placeholder="Last Name"
                     value="{{$details->last_name}}">
@@ -44,7 +46,8 @@
               <label for="address">Address</label>
              <input type="text"
                     required
-                    id="address" 
+                    id="address"
+                    name="user_address" 
                     class="form-control"
                     placeholder="Address"
                     value="{{$details->user_address}}">
@@ -54,6 +57,7 @@
              <input type="text" 
                   required
                   id="date-of-birth"
+                  name="date_of_birth"
                   class="form-control" 
                   placeholder="Date of Birth"
                   value="{{$details->date_of_birth}}"><!--Need to add a date time picker-->
@@ -73,12 +77,11 @@
             <p style="text-align:center; font-size:14px">This is the web interface to Edit, Update and/or Delete records of the  <em>ABC International school Student Management System</em> </p>
           </div>
 
-          <div class="sidebar-module"><!--Please route these-->
+          <div class="sidebar-module">
             <h4>User Management</h4>
             <ol class="list-unstyled">
-              <li><a href="#">Add</a></li>
-              <li><a href="#">Update</a></li>
-              <li><a href="#">Delete</a></li>
+              <li><a href="/users/{{$details->id}}">Back to user details</a></li>
+              <li><a href="/users">All users</a></li>
             </ol>
           </div>
 
