@@ -107,7 +107,7 @@ class UsersController extends Controller
                             ]);
         if($userUpdate){
             return redirect()->route('users.show',  ['details'=>$user])
-            ->with('success', 'user updated successfully');//Return message
+            ->with('success', 'User updated successfully');//Return message
         }                        
         return back()->withInput();
     }
@@ -120,6 +120,8 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        //Delete a user
+
+        dd($user);//Temp to view details that we are trying to destroy
     }
 }

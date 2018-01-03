@@ -55,6 +55,17 @@
     </div>
 </div>
 
+<script type="text/javascript">
+  function getDelete(){//onclick to delete the data
+ var result = confirm('Are you sure you wish to delete user: {{$details->first_name." ".$details->last_name}}');//Alert Dialog message
+                      if( result ){//If the user clicks on the delete button (onClick())
+                              event.preventDefault();
+                              document.getElementById('delete-form').submit();
+                      }
+                          
+}
+</script>
+
 <div class ="col-lg-2 col-md-2 pull-right">
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
@@ -63,10 +74,43 @@
 
           <div class="sidebar-module">
             <h4>User Management</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">Add</a></li>
+            <ol class="list-unstyled"><!--No need to add a user in the show.blade-->
               <li><a href="/users/{{$details->id}}/edit">Edit</a></li>
-              <li><a href="#">Delete</a></li>
+
+<!--Delete code copied from "daveozoalor's github"-->
+
+<li>
+
+                  
+           <!--Original code without a function-->
+           <!--   <a   
+              href="#"
+                  onclick="
+                  var result = confirm('Are you sure you wish to delete user: {{$details->first_name." ".$details->last_name}}');//Alert Dialog message
+                      if( result ){//If the user clicks on the delete button (onClick())
+                              event.preventDefault();
+                              document.getElementById('delete-form').submit();
+                      }
+                          "
+                          >
+                  Delete
+              </a>-->
+
+              <!--Improved code with a function-->
+              <a href="#" onclick="getDelete()"> Delete</a>
+
+              <form id="delete-form" action="{{ route('users.destroy',[$details->id]) }}" 
+                method="POST" style="display: none;"> <!--Link to the delete action in the controller-->
+                        <input type="hidden" name="_method" value="delete">
+                        {{ csrf_field() }}
+              </form>
+
+ 
+              
+              
+              </li>
+
+<!--Delete code ends-->
             </ol>
           </div>
 

@@ -5,12 +5,11 @@
         <div class="panel-heading">All students</div>
     <div class="panel-body">
         <ul class="list-group">
-                @foreach($students as $students)
-            <li class="list-group-item"><a href ="/students/{{$students->student_id}}">{{$students->first_name." ".$students->last_name}}</li><!-- This will return the full name from the database-->
-          
-        </ul>
+             @foreach($students as $students)
+            <li class="list-group-item"><a href ="/students/{{$students->student_id}}">{{$students->first_name." ".$students->last_name}}</li><!-- This will return the full name from the database-->       
             @endforeach
-    
+        </ul>
+             
     </div>
 </div>
 <hr/>
