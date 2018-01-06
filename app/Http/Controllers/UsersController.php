@@ -98,7 +98,7 @@ class UsersController extends Controller
 
         $userUpdate = User::where('id', $user->id)
                             ->update([
-                                'first_name'=>$request->input('first_name'),//Here coms the name of the object
+                                'first_name'=>$request->input('first_name'),//Here comes the name of the object
                                 'last_name'=>$request->input('last_name'),
                                 'user_address'=>$request->input('user_address'),
                                 'date_of_birth'=>$request->input('date_of_birth')
@@ -126,7 +126,7 @@ class UsersController extends Controller
 
       if($findUser->delete()){
           return redirect()->route('users.index')
-          ->with('Success', 'User Deleted Successfully');
+          ->with('success', 'User Deleted Successfully');
       }
 
       return back()->withInput()->with('error', 'User could not be deleted.');
