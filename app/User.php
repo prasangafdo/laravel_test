@@ -33,10 +33,10 @@ class User extends Authenticatable
     ];
 
     public function students(){
-        return $this->hasMany('App\Students');
+        return $this->hasOne('App\Students');
     }
 
     public function userRole(){
-        return $this->hasMany('App\UserRole');//Has a in ER diagram
+        return $this->hasOne('App\UserRole');//Has a in ER diagram
     }
 }
