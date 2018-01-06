@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('/roles', function(){
 return UserRole::all();
 });
+
+Route::get('/rel', function(){
+    $students = \App\Students::all();
+
+    return view('students.temp', ['students'=>$students]);
+    });
 /*
 Route::get('/prasanga', function () {
     //return "<h1 class = text-danger> This is Prabodha on \"prasanga route\"</h1>"; //This prints the keywords.

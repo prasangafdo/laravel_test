@@ -59,11 +59,9 @@ class UsersController extends Controller
 
        // return view('users.show', ['user_details'=>$user]);
        
-       $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
-        ->get()
-        ->where('user_id', '=', $user->id);//This includes the user_id
-        return view('users.show', ['details'=>$user_details]);
-       // return ($user_details);
+        $dd= User::find($user->id);//Check the migration
+        return view('users.show', ['user'=>$dd]);
+        //return ($user);
 
     }
 
@@ -122,6 +120,20 @@ class UsersController extends Controller
     {
         //Delete a user
 
-        dd($user);//Temp to view details that we are trying to destroy
+      //  dd($user);//Temp to view details that we are trying to destroy
+
+      $findUser = User::find($user->id);
+    /*  if($findUser->delete()){
+          return redirect()->route('users.index')
+          ->with('Success', 'User Deleted Successfully');
+
+          $table->foreign('category_id')->references('id')->on('categories')
+          ->onDelete('cascade');
+      }*/
+
+      return($findUser);
+
+return ($user);
+     // return back()->withInput()->with('error', 'User could not be deleted');
     }
 }

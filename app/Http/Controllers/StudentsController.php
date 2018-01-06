@@ -19,9 +19,7 @@ class StudentsController extends Controller
        // return view('students.index', ['students'=>$students]);
 
        //Join students and users
-        $user_details =  Students::join('users', 'users.id', '=', 'students.user_id')
-        ->select('students.id as student_id', 'users.*')
-        ->get();//Since we have the student id here, it's already a student. So no need a where clause
+        $user_details =  Students::all();
         return view('students.index', ['students'=>$user_details]);
        //return ($user_details);
     

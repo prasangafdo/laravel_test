@@ -14,9 +14,8 @@
       </div>
 
       <div class="jumbotron">
-      @foreach($details as $dd)
-      <h1>{{$dd->first_name." ".$dd->last_name}}</h1>
-      @endforeach()
+
+      <h1>{{$user->first_name." ".$user->last_name}}</h1><!--We can use it directly without a foreach loop-->
      
 
       <!--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
@@ -38,14 +37,14 @@
                 <th>Date of Birth</th>
                 <th>User Role</th>
             </tr>
-            @foreach($details as $details)
+
             <tr>
-                <td>{{$details->first_name." ".$details->last_name}}</td>
-                <td>{{$details->user_address}}</td>
-                <td>{{$details->date_of_birth}}</td>
-                <td>{{$details->user_role}}</td>
+                <td>{{$user->first_name." ".$user->last_name}}</td>
+                <td>{{$user->user_address}}</td>
+                <td>{{$user->date_of_birth}}</td>
+                <td>{{$user->userRole->user_role}}</td>
             </tr>
-            @endforeach
+
             <!--<th>- Table heading-->
             <!--<th>- Table data-->
         </table>
@@ -57,7 +56,7 @@
 
 <script type="text/javascript">
   function getDelete(){//onclick to delete the data
- var result = confirm('Are you sure you wish to delete user: {{$details->first_name." ".$details->last_name}}');//Alert Dialog message
+ var result = confirm('Are you sure you wish to delete user: {{$user->first_name." ".$user->last_name}}');//Alert Dialog message
                       if( result ){//If the user clicks on the delete button (onClick())
                               event.preventDefault();
                               document.getElementById('delete-form').submit();
@@ -75,7 +74,7 @@
           <div class="sidebar-module">
             <h4>User Management</h4>
             <ol class="list-unstyled"><!--No need to add a user in the show.blade-->
-              <li><a href="/users/{{$details->id}}/edit">Edit</a></li>
+              <li><a href="/users/{{$user->id}}/edit">Edit</a></li>
 
 <!--Delete code copied from "daveozoalor's github"-->
 
@@ -86,7 +85,7 @@
            <!--   <a   
               href="#"
                   onclick="
-                  var result = confirm('Are you sure you wish to delete user: {{$details->first_name." ".$details->last_name}}');//Alert Dialog message
+                  var result = confirm('Are you sure you wish to delete user: {{$user->first_name." ".$user->last_name}}');//Alert Dialog message
                       if( result ){//If the user clicks on the delete button (onClick())
                               event.preventDefault();
                               document.getElementById('delete-form').submit();
@@ -99,7 +98,7 @@
               <!--Improved code with a function-->
               <a href="#" onclick="getDelete()"> Delete</a>
 
-              <form id="delete-form" action="{{ route('users.destroy',[$details->id]) }}" 
+              <form id="delete-form" action="{{ route('users.destroy',[$user->id]) }}" 
                 method="POST" style="display: none;"> <!--Link to the delete action in the controller-->
                         <input type="hidden" name="_method" value="delete">
                         {{ csrf_field() }}
