@@ -134,7 +134,7 @@
 </div>
 
 <hr/>    
-      <footer class="footer col-sm-7 col-sm-offset-3">
+      <footer class="footer col-sm-7 col-sm-offset-2">
         <p style="text-align:center">© 2018 Company, Inc.</p>
       </footer>
 

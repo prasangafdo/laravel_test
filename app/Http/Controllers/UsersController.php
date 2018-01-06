@@ -123,15 +123,13 @@ class UsersController extends Controller
       //  dd($user);//Temp to view details that we are trying to destroy
 
       $findUser = User::find($user->id);
-    /*  if($findUser->delete()){
+
+      if($findUser->delete()){
           return redirect()->route('users.index')
           ->with('Success', 'User Deleted Successfully');
+      }
 
-          $table->foreign('category_id')->references('id')->on('categories')
-          ->onDelete('cascade');
-      }*/
-
-      return($findUser);
+      return back()->withInput()->with('error', 'User could not be deleted.');
 
 return ($user);
      // return back()->withInput()->with('error', 'User could not be deleted');
