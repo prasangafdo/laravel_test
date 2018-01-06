@@ -16,7 +16,6 @@
       <div class="jumbotron">
 
       <h1>{{$user->first_name." ".$user->last_name}}</h1><!--We can use it directly without a foreach loop-->
-     
 
       <!--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
       </div>
@@ -74,13 +73,14 @@
           <div class="sidebar-module">
             <h4>User Management</h4>
             <ol class="list-unstyled"><!--No need to add a user in the show.blade-->
+              <li><a href="/users/create">Add a user</a></li>
+              <li><a href="/students/create">Add a student</a></li>
               <li><a href="/users/{{$user->id}}/edit">Edit</a></li>
+              <li><a href="/users">View all users</a></li>
 
 <!--Delete code copied from "daveozoalor's github"-->
 
-<li>
-
-                  
+<li>            
            <!--Original code without a function-->
            <!--   <a   
               href="#"
@@ -102,11 +102,7 @@
                 method="POST" style="display: none;"> <!--Link to the delete action in the controller-->
                         <input type="hidden" name="_method" value="delete">
                         {{ csrf_field() }}
-              </form>
-
- 
-              
-              
+              </form> 
               </li>
 
 <!--Delete code ends-->
