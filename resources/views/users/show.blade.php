@@ -42,7 +42,7 @@
                 <td>{{$user->first_name." ".$user->last_name}}</td>
                 <td>{{$user->user_address}}</td>
                 <td>{{$user->date_of_birth}}</td>
-                <td>{{$user->userRole->user_role}}</td>
+                <td>{{$user->userRole->user_role}}</td><!--Getting user role from "userRole" function in the model-->
             </tr>
 
             <!--<th>- Table heading-->
