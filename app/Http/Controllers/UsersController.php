@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -40,6 +41,14 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //Actual inserting happens here
+        if(Auth::check()){
+            $user =User::create([
+                'first_name'=>$request->input('first_name'),
+                'last_name'=>$request->input('last_name'),
+                'user_address'=>$request->input('user_address'),
+                'date_of_birth'=>$request->input('date_of_birth')
+            ])
+        }
         
     }
 

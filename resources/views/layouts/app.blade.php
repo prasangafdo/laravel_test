@@ -70,14 +70,8 @@
                 </div>
             </div>
         </nav>
-            <div class="container">
-<!--Including partials to display the error messages-->
-            @include('partials.errors')
-            @include('partials.success')
-                <div class ="row">
-                    @yield('content')
-                </div>
-            </div>       
+
+        @yield('content')
     </div>
 
     <!-- Scripts -->
