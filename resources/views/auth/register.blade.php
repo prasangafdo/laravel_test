@@ -61,6 +61,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">user_address</label>
+
+                            <div class="col-md-6">
+                                <input id="user_address" type="text" class="form-control" name="user_address" value="{{ old('user_address') }}" required autofocus>
+
+                                @if ($errors->has('user_address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('user_address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
+                            <label for="date_of_birth" class="col-md-4 control-label">date_of_birth</label>
+
+                            <div class="col-md-6">
+                                <input id="date_of_birth" type="text" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}" required autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
