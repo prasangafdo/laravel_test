@@ -88,7 +88,9 @@ class StudentsController extends Controller
         ->where('student_id', '=', $student->id);//This includes the user_id
         return view('students.show', ['student_details'=>$student_details]);
 */
-        return ('This is show');
+        $dd= Students::find($student->id);//Check the migration
+        return view('students.show', ['student'=>$dd]);
+       //return ($dd);
     }
 
     /**
