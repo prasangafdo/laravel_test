@@ -23,22 +23,13 @@
           <input type="hidden" name="_method" value="put"><!--And this as well-->
           
             <div class="form-group">
-              <label for="first-name">First Name</label>
+              <label for="first-name">Name</label>
              <input type="text" 
                     required
                     id="first-name"
                     name="first_name"
                     class="form-control" 
                     placeholder="First Name"/>
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-             <input type="text"
-                    required
-                    id="last-name"
-                    name="last_name" 
-                    class="form-control" 
-                    placeholder="Last Name"/>
             </div>
             <div class="form-group">
               <label for="address">Address</label>

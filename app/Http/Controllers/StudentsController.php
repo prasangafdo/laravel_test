@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Students;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentsController extends Controller
 {
@@ -36,7 +37,7 @@ class StudentsController extends Controller
     public function create()
     {
         //
-
+        return view('students.create');
     }
 
     /**
@@ -48,6 +49,28 @@ class StudentsController extends Controller
     public function store(Request $request)
     {
         //
+            if(Auth::check()){
+            $student =Students::create([
+                'user_id'=>Auth::user()->id,
+                'grade'=>$request->input('grade'),
+                'parent_contact_num'=>$request->input('parent_contact_num'),
+                
+            ]);
+
+            if($student){
+                return redirect()->route('students.show', ['student'=>$student->id])
+                ->with('success', 'Student created successfully');
+            }
+
+            else
+            return('error');
+        }
+        // return Students::create([
+        //     'user_id'=>('1111'),
+        //     'grade'=>$request->input('grade'),
+        //     'parent_contact_num'=>$request->input('parent_contact_num'),
+        // ]);
+        
     }
 
     /**
@@ -59,12 +82,13 @@ class StudentsController extends Controller
     public function show(Students $student)
     {
         //
-        $student_details =  Students::join('users', 'students.user_id', '=', 'users.id')
+       /* $student_details =  Students::join('users', 'students.user_id', '=', 'users.id')
         ->select('students.*','students.id as student_id' , 'users.*')
         ->get()
         ->where('student_id', '=', $student->id);//This includes the user_id
         return view('students.show', ['student_details'=>$student_details]);
-
+*/
+        return ('This is show');
     }
 
     /**
