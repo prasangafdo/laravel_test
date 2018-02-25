@@ -14,12 +14,8 @@
 
       <div class="jumbotron">
 
-        @foreach($student_details as $name)
-      <h1>{{$name->first_name." ".$name->last_name}}</h1>
-        @endforeach()
-     
+      <h1 class="text-danger">Student Name here</h1>
 
-      <!--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
       </div>
 
       <div class="panel panel-default">
@@ -33,19 +29,19 @@
         <div class=" col-lg-8 col-lg-offset-2">
             <table class="table">
                 <tr>
-                    <th>Address</th>
-                    <th>Date of Birth</th>
+                    <th>Id</th>
+                    <th>User ID</th>
                     <th>Grade</th>
                     <th>Parent's contact number</th>
                 </tr>
-                @foreach($student_details as $details)
+
                 <tr>
-                    <td>{{$details->user_address}}</td>
-                    <td>{{$details->date_of_birth}}</td>
-                    <td>{{$details->grade}}</td>
-                    <td>{{$details->parent_contact_num}}</td>
+                    <td>{{$student->id}}</td>
+                    <td>{{$student->user_id}}</td>
+                    <td>{{$student->grade}}</td>
+                    <td>{{$student->parent_contact_num}}</td>
                 </tr>
-                @endforeach
+
                 <!--<th>- Table heading-->
                 <!--<th>- Table data-->
             </table>
@@ -100,3 +96,6 @@
       </footer>
 
     @endsection()
+
+
+
