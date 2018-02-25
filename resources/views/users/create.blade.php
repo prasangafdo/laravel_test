@@ -16,11 +16,9 @@
 
     <div class=" col-lg-10 col-lg-offset-1">
 
-          <form method="post" action="{{ route('users.create')}}">
+          <form method="post" action="{{ route('users.store')}}">
    
           {{csrf_field() }}<!--We need to add this in order to work a form in laravel-->
-
-          <input type="hidden" name="_method" value="put"><!--And this as well-->
           
             <div class="form-group">
               <label for="first-name">Name</label>

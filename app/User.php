@@ -25,7 +25,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-}
+    
     public function students(){
         return $this->hasOne('App\Students');//belongsTo comes in Students
     }
