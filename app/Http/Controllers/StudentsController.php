@@ -98,6 +98,8 @@ class StudentsController extends Controller
     public function edit(Students $student)
     {
         //
+        $dd= Students::find($student->id);//Check the migration
+        return view('students.edit', ['student'=>$dd]);
     }
 
     /**

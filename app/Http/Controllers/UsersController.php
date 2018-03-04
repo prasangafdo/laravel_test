@@ -148,7 +148,7 @@ class UsersController extends Controller
 
       return back()->withInput()->with('error', 'User could not be deleted.');
 
-return ($user);
+    return ($user);
      // return back()->withInput()->with('error', 'User could not be deleted');
     }
 }
