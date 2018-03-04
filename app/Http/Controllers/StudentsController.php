@@ -51,7 +51,8 @@ class StudentsController extends Controller
         //
             if(Auth::check()){
             $student =Students::create([
-                'user_id'=>Auth::user()->id,
+                'name'=>'student_name',
+                'student_address'=>'addr',
                 'grade'=>$request->input('grade'),
                 'parent_contact_num'=>$request->input('parent_contact_num'),
                 
@@ -65,11 +66,6 @@ class StudentsController extends Controller
         else
             //return('error');
             return back()->withInput()->with('errors', 'Error saving data');//Not working
-        // return Students::create([
-        //     'user_id'=>('1111'),
-        //     'grade'=>$request->input('grade'),
-        //     'parent_contact_num'=>$request->input('parent_contact_num'),
-        // ]);
         
     }
 

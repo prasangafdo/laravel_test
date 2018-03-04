@@ -13,14 +13,14 @@ class CreateUserDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_details', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('user_address');
-            $table->date('date_of_birth');
-            $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            
-        });
+        // Schema::create('user_details', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('user_id')->unsigned();
+        //     $table->string('user_address');
+        //     $table->date('date_of_birth');
+        //     $table->timestamps();
+        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            
+        // });
     }
 
     /**

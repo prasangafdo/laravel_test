@@ -15,6 +15,6 @@ class TermFees extends Model
     ];
 
     public function student(){
-        return $this->hasMany('App\Students');
+        return $this->belongsTo('App\Students');
     }
 }
