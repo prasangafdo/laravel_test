@@ -14,7 +14,7 @@
 
       <div class="jumbotron">
 
-      <h1 class="text-danger">Student Name here</h1>
+      <h1 class="text-danger">{{$student->name}}</h1>
 
       </div>
 
@@ -30,14 +30,14 @@
             <table class="table">
                 <tr>
                     <th>Id</th>
-                    <th>User ID</th>
+                    <th>Address</th>
                     <th>Grade</th>
                     <th>Parent's contact number</th>
                 </tr>
 
                 <tr>
                     <td>{{$student->id}}</td>
-                    <td>{{$student->user_id}}</td>
+                    <td>{{$student->student_address}}</td>
                     <td>{{$student->grade}}</td>
                     <td>{{$student->parent_contact_num}}</td>
                 </tr>

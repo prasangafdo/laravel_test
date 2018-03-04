@@ -16,11 +16,11 @@ class UserRoleController extends Controller
     public function index()
     {
         //Just for testing
-        $users = User::all();
-        $roles = UserRole::all();
+        // $users = User::all();
+         $roles = UserRole::all();
 
        // $selected = $users->roles;
-        //return $roles."<br/><hr/> ".$users;
+        return $roles."<br/><hr/>";
 
        // return   UserRole::find(1);
     }
