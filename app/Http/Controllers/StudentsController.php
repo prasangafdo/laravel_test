@@ -51,8 +51,8 @@ class StudentsController extends Controller
         //
             if(Auth::check()){
             $student =Students::create([
-                'name'=>'student_name',
-                'student_address'=>'addr',
+                'name'=>$request->input('name'),
+                'student_address'=>$request->input('student_address'),
                 'grade'=>$request->input('grade'),
                 'parent_contact_num'=>$request->input('parent_contact_num'),
                 
@@ -120,6 +120,15 @@ class StudentsController extends Controller
      */
     public function destroy(Students $student)
     {
-        //
+        $findStudent = Students::find($student->id);
+
+        if($findStudent->delete()){
+            return redirect()->route('students.index')
+            ->with('success', 'Student Deleted Successfully');
+        }
+  
+        return back()->withInput()->with('error', 'Student could not be deleted.');
+  
+      return ($student);
     }
 }

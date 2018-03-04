@@ -15,9 +15,9 @@
 
       <div class="jumbotron">
 
-      <h1>{{$user->name}}</h1><!--We can use it directly without a foreach loop-->
+      <h1>{{$user->name}}</h1> {{--  We can use it directly without a foreach loop  --}}
 
-      <!--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
+       {{--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>  --}}
       </div>
 
       <div class="panel panel-default">
@@ -105,7 +105,7 @@
               </form> 
               </li>
 
-<!--Delete code ends-->
+{{--Delete code ends --}}
             </ol>
           </div>
 
