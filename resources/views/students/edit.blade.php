@@ -1,4 +1,4 @@
-@extends('layouts/app')<!--Extend from the app layout-->
+@extends('layouts/app')
 @section('content')
 
 <div class="container col-lg-10 col-md-10 pull-left">
@@ -15,53 +15,64 @@
 <hr/>
 
     <div class=" col-lg-10 col-lg-offset-1">
-    @foreach($details as $details)
-          <form method="post" action="{{ route('users.update', [$details->id])}}">
-    @endforeach      
-          {{csrf_field() }}<!--We need to add this in order to work a form in laravel-->
+
+          <form method="post" action="{{ route('students.update', [$student->id])}}">
+ 
+          {{csrf_field() }}
 
           <input type="hidden" name="_method" value="put"><!--And this as well-->
           
             <div class="form-group">
-              <label for="first-name">First Name</label>
+              <label for="first-name">Name</label>
              <input type="text" 
                     required
-                    id="first-name"
-                    name="first_name"
+                    id="name"
+                    name="name"
                     class="form-control" 
-                    placeholder="First Name"
-                    value="{{$details->first_name}}"><!--Name is the fillable (Need to add them)-->
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-             <input type="text"
-                    required
-                    id="last-name"
-                    name="last_name" 
-                    class="form-control" 
-                    placeholder="Last Name"
-                    value="{{$details->last_name}}">
+                    placeholder="Name"
+                    value="{{$student->name}}">
+                    {{--  Name is the fillable (Need to add them)  --}}
             </div>
             <div class="form-group">
               <label for="address">Address</label>
              <input type="text"
                     required
-                    id="address"
-                    name="user_address" 
+                    id="student_address"
+                    name="student_address" 
                     class="form-control"
                     placeholder="Address"
-                    value="{{$details->user_address}}">
+                    value="{{$student->student_address}}">
             </div>
             <div class="form-group">
-              <label for="date-of-birth">Date of Birth</label>
+                <label for="date-of-birth">Date of Birth</label>
+               <input type="text" 
+                    required
+                    id="date-of-birth"
+                    name="date_of_birth"
+                    class="form-control" 
+                    placeholder="Date of Birth will be added in a future version"
+                    value="{{$student->date_of_birth}}"><!--Need to add a date time picker-->
+              </div>
+            <div class="form-group">
+              <label for="date-of-birth">Grade</label>
              <input type="text" 
                   required
                   id="date-of-birth"
                   name="date_of_birth"
                   class="form-control" 
                   placeholder="Date of Birth"
-                  value="{{$details->date_of_birth}}"><!--Need to add a date time picker-->
+                  value="{{$student->grade}}"><!--Need to add a date time picker-->
             </div>
+            <div class="form-group">
+                <label for="date-of-birth">{{"Parent's contact Number"}}</label>
+               <input type="text" 
+                    required
+                    id="date-of-birth"
+                    name="date_of_birth"
+                    class="form-control" 
+                    placeholder="Date of Birth"
+                    value="{{$student->parent_contact_num}}"><!--Need to add a date time picker-->
+              </div>
             
             <button type="submit" class="btn btn-primary col-md-offset-4 col-md-4">Submit</button>
           </form>
@@ -80,7 +91,7 @@
           <div class="sidebar-module">
             <h4>User Management</h4>
             <ol class="list-unstyled">
-              <li><a href="/users/{{$details->id}}">Back to user details</a></li>
+              <li><a href="/users/{{$student->id}}">Back to user details</a></li>
               <li><a href="/users">All users</a></li>
             </ol>
           </div>
