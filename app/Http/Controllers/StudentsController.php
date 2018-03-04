@@ -61,10 +61,10 @@ class StudentsController extends Controller
                 return redirect()->route('students.show', ['student'=>$student->id])
                 ->with('success', 'Student created successfully');
             }
-
-            else
-            return('error');
         }
+        else
+            //return('error');
+            return back()->withInput()->with('errors', 'Error saving data');//Not working
         // return Students::create([
         //     'user_id'=>('1111'),
         //     'grade'=>$request->input('grade'),
