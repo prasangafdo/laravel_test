@@ -15,6 +15,8 @@ class TermFeesController extends Controller
     public function index()
     {
         //
+        $termFees = TermFees::all();
+        return view('term-fees.index', ['termFees'=>$termFees]);
     }
 
     /**

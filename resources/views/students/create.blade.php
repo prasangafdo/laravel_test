@@ -17,10 +17,28 @@
     <div class=" col-lg-10 col-lg-offset-1">
 
           <form method="post" action="{{ route('students.store')}}">
-          <!-- Since the method is post, we don't need a hidden value -->
+          {{--Since the method is post, we do not need a hidden value --}} 
    
           {{csrf_field() }}<!--We need to add this in order to work a form in laravel-->
           
+          <div class="form-group">
+            <label for="name">Name</label>
+           <input type="text" 
+                  required
+                  id="name"
+                  name="name"
+                  class="form-control" 
+                  placeholder="Name"/>
+          </div>
+          <div class="form-group">
+            <label for="student_address">Address</label>
+           <input type="text" 
+                  required
+                  id="student_address"
+                  name="student_address"
+                  class="form-control" 
+                  placeholder="Address"/>
+          </div>
             <div class="form-group">
               <label for="grade">Grade</label>
              <input type="text" 

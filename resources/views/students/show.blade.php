@@ -14,7 +14,7 @@
 
       <div class="jumbotron">
 
-      <h1 class="text-danger">Student Name here</h1>
+      <h1 class="text-danger">{{$student->name}}</h1>
 
       </div>
 
@@ -30,14 +30,14 @@
             <table class="table">
                 <tr>
                     <th>Id</th>
-                    <th>User ID</th>
+                    <th>Address</th>
                     <th>Grade</th>
-                    <th>Parent's contact number</th>
+                    {{--  <th>Parent's contact number</th>  --}}
                 </tr>
 
                 <tr>
                     <td>{{$student->id}}</td>
-                    <td>{{$student->user_id}}</td>
+                    <td>{{$student->student_address}}</td>
                     <td>{{$student->grade}}</td>
                     <td>{{$student->parent_contact_num}}</td>
                 </tr>
@@ -53,49 +53,87 @@
 <!--End about-->
 </div>
 
+<div class ="col-lg-2 col-md-2 pull-right">
+  <div class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p style="text-align:center; font-size:14px">This is the web interface to Edit, Update and/or Delete records of the  <em>ABC International school Student Management System</em> </p>
+  </div>
 
+  <div class="sidebar-module">
+    <h4>User Management</h4>
+    <ol class="list-unstyled"><!--No need to add a user in the show.blade-->
+      <li><a href="/users/create">Add a user</a></li>
+      <li><a href="/students/create">Add a student</a></li>
+      <li><a href="/students/{{$student->id}}/edit">Edit</a></li>
+      <li><a href="/students">View all students</a></li>
 
-    <div class ="col-lg-2 col-md-2 pull-right">
-              <div class="sidebar-module sidebar-module-inset">
-                <h4>About</h4>
-                <p style="text-align:center; font-size:14px">
-                This is the web interface to Add, Update and/or Delete records of the  <em>ABC International school Student Management System</em> </p>
-              </div>
-              
-              <div class="sidebar-module">
-                <h4>Student Management</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Add</a></li>
-                  <li><a href="#">Edit</a></li>
-                  <li><a href="#">Delete </a></li>
-                </ol>
-              </div>
-              
-              <div class="sidebar-module">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">March 2014</a></li>
-                  <li><a href="#">February 2014</a></li>
-                  <li><a href="#">January 2014</a></li>
-                  <li><a href="#">December 2013</a></li>
-                  <li><a href="#">November 2013</a></li>
-                  <li><a href="#">October 2013</a></li>
-                  <li><a href="#">September 2013</a></li>
-                  <li><a href="#">August 2013</a></li>
-                  <li><a href="#">July 2013</a></li>
-                  <li><a href="#">June 2013</a></li>
-                  <li><a href="#">May 2013</a></li>
-                  <li><a href="#">April 2013</a></li>
-                </ol>
-              </div>
-              
-    </div>
+<!--Delete code copied from "daveozoalor's github"-->
+
+<li>            
+   {{--  <!--Original code without a function-->
+   <!--   <a   
+      href="#"
+          onclick="
+          var result = confirm('Are you sure you wish to delete user: {{$student->name}}');//Alert Dialog message
+              if( result ){//If the user clicks on the delete button (onClick())
+                      event.preventDefault();
+                      document.getElementById('delete-form').submit();
+              }
+                  "
+                  >
+          Delete
+      </a>-->  --}}
+
+      {{--  <!--Improved code with a function-->  --}}
+      <a href="#" onclick="getDelete()"> Delete</a>
+
+      <form id="delete-form" action="{{ route('students.destroy',[$student->id]) }}" 
+        method="POST" style="display: none;"> <!--Link to the delete action in the controller-->
+                <input type="hidden" name="_method" value="delete">
+                {{ csrf_field() }}
+      </form> 
+      </li>
+
+{{--Delete code ends --}}
+    </ol>
+  </div>
+
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ol class="list-unstyled">
+      <li><a href="#">March 2014</a></li>
+      <li><a href="#">February 2014</a></li>
+      <li><a href="#">January 2014</a></li>
+      <li><a href="#">December 2013</a></li>
+      <li><a href="#">November 2013</a></li>
+      <li><a href="#">October 2013</a></li>
+      <li><a href="#">September 2013</a></li>
+      <li><a href="#">August 2013</a></li>
+      <li><a href="#">July 2013</a></li>
+      <li><a href="#">June 2013</a></li>
+      <li><a href="#">May 2013</a></li>
+      <li><a href="#">April 2013</a></li>
+    </ol>
+  </div>
+  
+</div>
     <hr/>    
     <footer class="footer col-sm-7 col-sm-offset-3">
         <p style="text-align:center">© 2018 Company, Inc.</p>
       </footer>
 
     @endsection()
+
+    <script type="text/javascript">
+      function getDelete(){//onclick to delete the data
+     var result = confirm('Are you sure you wish to delete user: {{$student->name}}');//Alert Dialog message
+                          if( result ){//If the user clicks on the delete button (onClick())
+                                  event.preventDefault();
+                                  document.getElementById('delete-form').submit();
+                          }
+                              
+    }
+    </script>
 
 
 

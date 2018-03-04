@@ -25,13 +25,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-}
-    public function students(){
-        return $this->hasOne('App\Students');//belongsTo comes in Students
-    }
+    
+    // public function students(){
+    //     return $this->hasOne('App\Students');//belongsTo comes in Students
+    // }
 
     public function userRole(){
-        return $this->hasOne('App\UserRole');//Has a in ER diagram
+        return $this->belongsTo('App\UserRole');//Has a in ER diagram
     }
 }
 

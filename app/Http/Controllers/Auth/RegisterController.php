@@ -42,11 +42,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255', //Moved to user_details table
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'user_address' => 'required|string|max:255',
-            'date_of_birth' => 'required|string|max:255',
+            // 'user_address' => 'required|string|max:255',
+            // 'date_of_birth' => 'required|string|max:255',
         ]);
     }
     /**
@@ -61,8 +61,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'user_address' => $data['user_address'],
-            'date_of_birth' => $data['date_of_birth'],
+            // 'user_address' => $data['user_address'],
+            // 'date_of_birth' => $data['date_of_birth'],
         ]);
     }
 }

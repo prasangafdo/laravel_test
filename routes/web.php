@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/roles', function(){
-return UserRole::all();
-});
 
 Route::get('/rel', function(){
     $students = \App\Students::all();

@@ -9,7 +9,7 @@
         
         <ul class="list-group">
             @foreach($users as $user)
-        <li class="list-group-item"><a href ="/users/{{$user->id}}">{{$user->first_name." ".$user->last_name}}</li><!-- This will return the full name from the database-->
+        <li class="list-group-item"><a href ="/users/{{$user->id}}">{{$user->name}}</li><!-- This will return the full name from the database-->
             @endforeach
         </ul> 
         <a class="btn btn-lg btn-primary col-sm-offset-3" href="users/create">Add a user</a>
