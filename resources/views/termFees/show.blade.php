@@ -15,9 +15,9 @@
 
       <div class="jumbotron">
 
-      <h1>{{$user->name}}</h1> {{--  We can use it directly without a foreach loop  --}}
+      <h1>{{$fees->id}}</h1><!--We can use it directly without a foreach loop-->
 
-       {{--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>  --}}
+      <!--  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
       </div>
 
       <div class="panel panel-default">
@@ -38,10 +38,10 @@
             </tr>
 
             <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$user->user_address}}</td>
-                <td>{{$user->date_of_birth}}</td>
-                <td>{{$user->userRole->user_role}}</td><!--Getting user role from "userRole" function in the model-->
+                <td>{{""}}</td>
+                <td>{{""}}</td>
+                <td>{{""}}</td>
+                <td>{{""}}</td><!--Getting user role from "userRole" function in the model-->
             </tr>
 
             <!--<th>- Table heading-->
@@ -55,7 +55,7 @@
 
 <script type="text/javascript">
   function getDelete(){//onclick to delete the data
- var result = confirm('Are you sure you wish to delete user: {{$user->first_name." ".$user->last_name}}');//Alert Dialog message
+ var result = confirm('Are you sure you wish to delete user: {{"null"}}');//Alert Dialog message
                       if( result ){//If the user clicks on the delete button (onClick())
                               event.preventDefault();
                               document.getElementById('delete-form').submit();
@@ -75,26 +75,12 @@
             <ol class="list-unstyled"><!--No need to add a user in the show.blade-->
               <li><a href="/users/create">Add a user</a></li>
               <li><a href="/students/create">Add a student</a></li>
-              <li><a href="/users/{{$user->id}}/edit">Edit</a></li>
+              <li><a href="/users/{{"null"}}/edit">Edit</a></li>
               <li><a href="/users">View all users</a></li>
 
 <!--Delete code copied from "daveozoalor's github"-->
 
-<li>            
-           <!--Original code without a function-->
-           <!--   <a   
-              href="#"
-                  onclick="
-                  var result = confirm('Are you sure you wish to delete user: {{$user->first_name." ".$user->last_name}}');//Alert Dialog message
-                      if( result ){//If the user clicks on the delete button (onClick())
-                              event.preventDefault();
-                              document.getElementById('delete-form').submit();
-                      }
-                          "
-                          >
-                  Delete
-              </a>-->
-
+{{--<li>            
               <!--Improved code with a function-->
               <a href="#" onclick="getDelete()"> Delete</a>
 
@@ -103,9 +89,9 @@
                         <input type="hidden" name="_method" value="delete">
                         {{ csrf_field() }}
               </form> 
-              </li>
+              </li>--}}
 
-{{--Delete code ends --}}
+<!--Delete code ends-->
             </ol>
           </div>
 

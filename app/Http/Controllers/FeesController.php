@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\UserRole;
-use App\User;//Remove this
+use App\Fee;
 use Illuminate\Http\Request;
 
-class UserRoleController extends Controller
+class FeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +14,9 @@ class UserRoleController extends Controller
      */
     public function index()
     {
-        //Just for testing
-        // $users = User::all();
-         $roles = UserRole::all();
-
-       // $selected = $users->roles;
-        return $roles."<br/><hr/>";
-
-       // return   UserRole::find(1);
+        //
+         $fees =  Fee::all();
+        return view('fees.index', ['fees'=>$fees]);
     }
 
     /**
@@ -49,21 +43,22 @@ class UserRoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserRole  $userRole
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function show(UserRole $userRole)
+    public function show(Fee $fee)
     {
-        //
+        $fees= Fee::find($fee->id);//Check the migration
+        return view('fees.show', ['fee'=>$fees]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserRole  $userRole
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserRole $userRole)
+    public function edit(Fee $fee)
     {
         //
     }
@@ -72,10 +67,10 @@ class UserRoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserRole  $userRole
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserRole $userRole)
+    public function update(Request $request, Fee $fee)
     {
         //
     }
@@ -83,10 +78,10 @@ class UserRoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserRole  $userRole
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserRole $userRole)
+    public function destroy(Fee $fee)
     {
         //
     }

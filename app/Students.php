@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Students extends Model
 {
     protected $fillable = [//These are the data that users need to fill
-    	'user_id',
+        'name',
+        'student_address',
     	'grade',
     	'parent_contact_num'
     ];
@@ -16,7 +17,7 @@ class Students extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function term_fee(){
-        return $this->belongsTo('App\TermFees');
-    }
+    // public function term_fee(){
+    //     return $this->belongsTo('App\TermFees');
+    // }
 }

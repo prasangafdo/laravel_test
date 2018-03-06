@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/roles', function(){
-return UserRole::all();
-});
 
 Route::get('/rel', function(){
     $students = \App\Students::all();
@@ -41,7 +38,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UsersController');
 Route::resource('students', 'StudentsController');
 Route::resource('userRole', 'UserRoleController');
-Route::resource('termFees', 'TermFeesController');
+Route::resource('term-fees', 'TermFeesController');
+Route::resource('new', 'NewController');
+Route::resource('fees', 'FeesController');
 
 /*Auth::routes();
 

@@ -1,4 +1,4 @@
-@extends('layouts/app')<!--Using the same code as the edit.blade but have removed the values and id-->
+@extends('layouts/app')<!--Extend from the app layout-->
 @section('content')
 
 <div class="container col-lg-10 col-md-10 pull-left">
@@ -15,48 +15,54 @@
 <hr/>
 
     <div class=" col-lg-10 col-lg-offset-1">
-
-          <form method="post" action="{{ route('students.store')}}">
-          {{--Since the method is post, we do not need a hidden value --}} 
-   
+    @foreach($details as $details)
+          <form method="post" action="{{ route('users.update', [$details->id])}}">
+    @endforeach      
           {{csrf_field() }}<!--We need to add this in order to work a form in laravel-->
+
+          <input type="hidden" name="_method" value="put"><!--And this as well-->
           
-          <div class="form-group">
-            <label for="name">Name</label>
-           <input type="text" 
-                  required
-                  id="name"
-                  name="name"
-                  class="form-control" 
-                  placeholder="Name"/>
-          </div>
-          <div class="form-group">
-            <label for="student_address">Address</label>
-           <input type="text" 
-                  required
-                  id="student_address"
-                  name="student_address"
-                  class="form-control" 
-                  placeholder="Address"/>
-          </div>
             <div class="form-group">
-              <label for="grade">Grade</label>
+              <label for="first-name">First Name</label>
              <input type="text" 
                     required
-                    id="grade"
-                    name="grade"
+                    id="first-name"
+                    name="first_name"
                     class="form-control" 
-                    placeholder="Grade"/>
+                    placeholder="First Name"
+                    value="{{$details->first_name}}"><!--Name is the fillable (Need to add them)-->
             </div>
             <div class="form-group">
-              <label for="parent_contact_num">parent_contact_num</label>
+              <label for="last-name">Last Name</label>
              <input type="text"
                     required
-                    id="parent_contact_num"
-                    name="parent_contact_num" 
+                    id="last-name"
+                    name="last_name" 
+                    class="form-control" 
+                    placeholder="Last Name"
+                    value="{{$details->last_name}}">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+             <input type="text"
+                    required
+                    id="address"
+                    name="user_address" 
                     class="form-control"
-                    placeholder="parent_contact_num"/>
-            </div>            
+                    placeholder="Address"
+                    value="{{$details->user_address}}">
+            </div>
+            <div class="form-group">
+              <label for="date-of-birth">Date of Birth</label>
+             <input type="text" 
+                  required
+                  id="date-of-birth"
+                  name="date_of_birth"
+                  class="form-control" 
+                  placeholder="Date of Birth"
+                  value="{{$details->date_of_birth}}"><!--Need to add a date time picker-->
+            </div>
+            
             <button type="submit" class="btn btn-primary col-md-offset-4 col-md-4">Submit</button>
           </form>
     </div>
@@ -74,9 +80,8 @@
           <div class="sidebar-module">
             <h4>User Management</h4>
             <ol class="list-unstyled">
-              <li><a href="/students/create">Add a student</a></li>
+              <li><a href="/users/{{$details->id}}">Back to user details</a></li>
               <li><a href="/users">All users</a></li>
-              <li><a href="/students/">All students</a></li>
             </ol>
           </div>
 

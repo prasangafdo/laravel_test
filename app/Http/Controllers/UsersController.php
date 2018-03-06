@@ -93,10 +93,11 @@ class UsersController extends Controller
        // $user_details =  User::all();
         //return view('users.edit', ['details'=>$user_details]);
 
-        $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
-        ->get()
-        ->where('user_id', '=', $user->id);//This includes the user_id
-        return view('users.edit', ['details'=>$user_details]);
+                                    // $user_details =  User::join('user_roles', 'users.id', '=', 'user_roles.user_id')
+                                    // ->get()
+                                    // ->where('user_id', '=', $user->id);//This includes the user_id
+                                    // return view('users.edit', ['details'=>$user_details]);
+                                    //Working 
 
         //return ($user_details);
     }
@@ -147,7 +148,7 @@ class UsersController extends Controller
 
       return back()->withInput()->with('error', 'User could not be deleted.');
 
-return ($user);
+    return ($user);
      // return back()->withInput()->with('error', 'User could not be deleted');
     }
 }

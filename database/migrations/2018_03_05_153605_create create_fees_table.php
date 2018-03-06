@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRoleTable extends Migration
+class CreateCreateFeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateUserRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_role', function (Blueprint $table) {
+        //
+        Schema::create('fees', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_role');
+            $table->integer('student_id')->unsigned();
+            $table->boolean('is_paid');
+            $table->date('paid_date');
+            $table->date('next_due_date');
+            $table->integer('fee');
+            $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ class CreateUserRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_role');
+        //
     }
 }

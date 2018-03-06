@@ -16,47 +16,46 @@
 
     <div class=" col-lg-10 col-lg-offset-1">
 
-          <form method="post" action="{{ route('students.store')}}">
-          {{--Since the method is post, we do not need a hidden value --}} 
+          <form method="post" action="{{ route('term-fees.store')}}">
    
           {{csrf_field() }}<!--We need to add this in order to work a form in laravel-->
           
-          <div class="form-group">
-            <label for="name">Name</label>
-           <input type="text" 
-                  required
-                  id="name"
-                  name="name"
-                  class="form-control" 
-                  placeholder="Name"/>
-          </div>
-          <div class="form-group">
-            <label for="student_address">Address</label>
-           <input type="text" 
-                  required
-                  id="student_address"
-                  name="student_address"
-                  class="form-control" 
-                  placeholder="Address"/>
-          </div>
             <div class="form-group">
-              <label for="grade">Grade</label>
+              <label for="student-id">Student ID</label>
              <input type="text" 
                     required
-                    id="grade"
-                    name="grade"
+                    id="student-id"
+                    name="student-id"
                     class="form-control" 
-                    placeholder="Grade"/>
+                    placeholder="Student ID"/>
             </div>
             <div class="form-group">
-              <label for="parent_contact_num">parent_contact_num</label>
+              <label for="paid-date">Paid Date</label>
              <input type="text"
                     required
-                    id="parent_contact_num"
-                    name="parent_contact_num" 
+                    id="paid-date"
+                    name="paid-date" 
                     class="form-control"
-                    placeholder="parent_contact_num"/>
-            </div>            
+                    placeholder="Paid Date"/>{{--Need to get the current date automatically--}}
+            </div>
+            <div class="form-group">
+              <label for="next-due-date">Next Due Date</label>
+             <input type="text" 
+                  required
+                  id="next-due-date"
+                  name="next-due-date"
+                  class="form-control" 
+                  placeholder="Next Due Date"/><!--Need to add a date time picker-->
+            </div>
+            <div class="form-group">
+              <label for="fee">Fee</label>
+             <input type="text" 
+                  required
+                  id="fee"
+                  name="fee"
+                  class="form-control" 
+                  placeholder="Fee"/><!--Need to calculate automatically-->
+            </div>
             <button type="submit" class="btn btn-primary col-md-offset-4 col-md-4">Submit</button>
           </form>
     </div>

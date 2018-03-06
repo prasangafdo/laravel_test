@@ -9,12 +9,12 @@
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted"></h3><!--Setting the name-->
+        <h3 class="text-muted">Text</h3>
       </div>
 
       <div class="jumbotron">
 
-      <h1 class="text-danger">{{$student->name}}</h1>
+      <h1 class="text-danger">{{$fee->student->name}}</h1>
 
       </div>
 
@@ -29,24 +29,26 @@
         <div class=" col-lg-8 col-lg-offset-2">
             <table class="table">
                 <tr>
-                    <th>Id</th>
                     <th>Address</th>
                     <th>Grade</th>
-                    {{--  <th>Parent's contact number</th>  --}}
+                    <th>Parent's contact number</th>
+                    <th>Paid Date</th>
+                    <th>Next Due Date</th> 
                 </tr>
 
                 <tr>
-                    <td>{{$student->id}}</td>
-                    <td>{{$student->student_address}}</td>
-                    <td>{{$student->grade}}</td>
-                    <td>{{$student->parent_contact_num}}</td>
+                    <td>{{$fee->student->student_address}}</td>
+                    <td>{{$fee->student->grade}}</td>
+                    <td>{{$fee->student->parent_contact_num}}</td>
+                    <td>{{$fee->paid_date}}</td>
+                    <td>{{$fee->next_due_date}}</td>
                 </tr>
 
                 <!--<th>- Table heading-->
                 <!--<th>- Table data-->
             </table>
         </div>
-	</div>
+  </div>
 
   <h1 class="col-lg-10" id="about">About</h1><!--Move this to the welcome blade-->
   <p></p>
@@ -64,7 +66,7 @@
     <ol class="list-unstyled"><!--No need to add a user in the show.blade-->
       <li><a href="/users/create">Add a user</a></li>
       <li><a href="/students/create">Add a student</a></li>
-      <li><a href="/students/{{$student->id}}/edit">Edit</a></li>
+      <li><a href="/students/{{$fee->student->id}}/edit">Edit</a></li>
       <li><a href="/students">View all students</a></li>
 
 <!--Delete code copied from "daveozoalor's github"-->
@@ -87,7 +89,7 @@
       {{--  <!--Improved code with a function-->  --}}
       <a href="#" onclick="getDelete()"> Delete</a>
 
-      <form id="delete-form" action="{{ route('students.destroy',[$student->id]) }}" 
+      <form id="delete-form" action="{{ route('students.destroy',[$fee]) }}" 
         method="POST" style="display: none;"> <!--Link to the delete action in the controller-->
                 <input type="hidden" name="_method" value="delete">
                 {{ csrf_field() }}
@@ -126,7 +128,7 @@
 
     <script type="text/javascript">
       function getDelete(){//onclick to delete the data
-     var result = confirm('Are you sure you wish to delete user: {{$student->name}}');//Alert Dialog message
+     var result = confirm('Are you sure you wish to delete user: {{$fee}}');//Alert Dialog message
                           if( result ){//If the user clicks on the delete button (onClick())
                                   event.preventDefault();
                                   document.getElementById('delete-form').submit();

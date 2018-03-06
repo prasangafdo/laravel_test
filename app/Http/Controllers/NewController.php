@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Students;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class StudentsController extends Controller
+class NewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +20,8 @@ class StudentsController extends Controller
        // return view('students.index', ['students'=>$students]);
 
        //Join students and users
-        $user_details =  Students::all();
-        return view('students.index', ['students'=>$user_details]);
+        $user_details =  User::all();
+        return view('new.index', ['students'=>$user_details]);
        //return ($user_details);
     
 
@@ -75,7 +75,7 @@ class StudentsController extends Controller
      * @param  \App\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function show(Students $student)
+    public function show(User $student)
     {
         //
        /* $student_details =  Students::join('users', 'students.user_id', '=', 'users.id')
@@ -84,8 +84,10 @@ class StudentsController extends Controller
         ->where('student_id', '=', $student->id);//This includes the user_id
         return view('students.show', ['student_details'=>$student_details]);
 */
-        $dd= Students::find($student->id);//Check the migration
-        return view('students.show', ['student'=>$dd]);
+        // $dd= Students::find($student->id);//Check the migration
+        // return view('students.show', ['student'=>$dd]);
+
+        print($student);
        //return ($dd);
     }
 
