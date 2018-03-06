@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\TermFees;
+use App\Fee;
 use Illuminate\Http\Request;
 
-class TermFeesController extends Controller
+class FeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TermFeesController extends Controller
     public function index()
     {
         //
-        $termFees = TermFees::all();
-        return view('term-fees.index', ['termFees'=>$termFees]);
+         $fees =  Fee::all();
+        return view('fees.index', ['fees'=>$fees]);
     }
 
     /**
@@ -43,21 +43,22 @@ class TermFeesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\TermFees  $termFees
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function show(TermFees $termFees)
+    public function show(Fee $fee)
     {
-        //
+        $fees= Fee::find($fee->id);//Check the migration
+        return view('fees.show', ['fee'=>$fees]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TermFees  $termFees
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function edit(TermFees $termFees)
+    public function edit(Fee $fee)
     {
         //
     }
@@ -66,10 +67,10 @@ class TermFeesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TermFees  $termFees
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TermFees $termFees)
+    public function update(Request $request, Fee $fee)
     {
         //
     }
@@ -77,10 +78,10 @@ class TermFeesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TermFees  $termFees
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TermFees $termFees)
+    public function destroy(Fee $fee)
     {
         //
     }

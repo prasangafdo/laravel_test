@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TermFees extends Model
+class Fee extends Model
 {
-    protected $fillable = [
+     protected $fillable = [
     	'student_id',
     	'is_paid',
     	'paid_date',
@@ -17,4 +17,9 @@ class TermFees extends Model
     public function student(){
         return $this->belongsTo('App\Students');
     }
+
+    public function manyStudent(){
+        return $this->hasMany('App\Students');
+    }
+
 }
