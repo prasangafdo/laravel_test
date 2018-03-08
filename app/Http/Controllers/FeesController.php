@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FeesController extends Controller
 {
@@ -37,7 +38,24 @@ class FeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Auth::check()){
+            $fees =Fee::create([
+                'student_id'=>$request->input('student_id'),
+                'is_paid'=>'1',
+                'paid_date'=>$request->input('paid_date'),
+                'next_due_date'=>$request->input('next_due_date'),
+                'fee'=>$request->input('fee'),
+                
+            ]);
+
+            if($fees){
+                return redirect()->route('fees.show', ['fees'=>$fees->id])
+                ->with('success', 'Data saved successfully');
+            }
+        }
+        else
+            //return('error');
+            return back()->withInput()->with('errors', 'Error saving data');//Not working
     }
 
     /**
