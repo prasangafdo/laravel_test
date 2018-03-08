@@ -34,6 +34,7 @@
                     <th>Parent's contact number</th>
                     <th>Paid Date</th>
                     <th>Next Due Date</th> 
+                    <th>Amount</th> 
                 </tr>
 
                 <tr>
@@ -42,6 +43,7 @@
                     <td>{{$fee->student->parent_contact_num}}</td>
                     <td>{{$fee->paid_date}}</td>
                     <td>{{$fee->next_due_date}}</td>
+                    <td>{{"Rs: ".$fee->fee}}</td>
                 </tr>
 
                 <!--<th>- Table heading-->

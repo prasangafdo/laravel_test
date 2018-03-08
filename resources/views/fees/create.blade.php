@@ -16,46 +16,46 @@
 
     <div class=" col-lg-10 col-lg-offset-1">
 
-          <form method="post" action="{{ route('students.store')}}">
+          <form method="post" action="{{ route('fees.store')}}">
           {{--Since the method is post, we do not need a hidden value --}} 
    
-          {{csrf_field() }}<!--We need to add this in order to work a form in laravel-->
+          {{csrf_field() }}
           
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="student_id">Student ID</label>
            <input type="text" 
                   required
-                  id="name"
-                  name="name"
+                  id="student_id"
+                  name="student_id"
                   class="form-control" 
-                  placeholder="Name"/>
+                  placeholder="student_id"/>
           </div>
           <div class="form-group">
-            <label for="student_address">Address</label>
+            <label for="paid_date">Paid Date</label>
            <input type="text" 
                   required
-                  id="student_address"
-                  name="student_address"
+                  id="paid_date"
+                  name="paid_date"
                   class="form-control" 
-                  placeholder="Address"/>
+                  placeholder="paid_date"/>
           </div>
             <div class="form-group">
-              <label for="grade">Grade</label>
+              <label for="next_due_date">Next Due Date</label>
              <input type="text" 
                     required
-                    id="grade"
-                    name="grade"
+                    id="next_due_date"
+                    name="next_due_date"
                     class="form-control" 
-                    placeholder="Grade"/>
+                    placeholder="next_due_date"/>
             </div>
             <div class="form-group">
-              <label for="parent_contact_num">parent_contact_num</label>
+              <label for="fee">Fee</label>
              <input type="text"
                     required
-                    id="parent_contact_num"
-                    name="parent_contact_num" 
+                    id="fee"
+                    name="fee" 
                     class="form-control"
-                    placeholder="parent_contact_num"/>
+                    placeholder="fee"/>
             </div>            
             <button type="submit" class="btn btn-primary col-md-offset-4 col-md-4">Submit</button>
           </form>
