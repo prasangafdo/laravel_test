@@ -22,14 +22,23 @@
           {{csrf_field() }}
           
           <div class="form-group">
-            <label for="student_id">Student ID</label>
+          <!--   <label for="student_id">Student ID</label>
            <input type="text" 
                   required
                   id="student_id"
                   name="student_id"
                   class="form-control" 
-                  placeholder="student_id"/>
+                  placeholder="student_id"/> -->
+
+             <label for="student_id">Student ID</label>
+               <select class="form-control" id="sel1">
+                    <!-- <select class="selectpicker"> -->
+                @foreach($students as $student)
+                <option value="{{$student->id}}">{{$student->id}}</option>
+                @endforeach
+             </select>
           </div>
+         
           <div class="form-group">
             <label for="paid_date">Paid Date</label>
            <input type="text" 

@@ -12,7 +12,7 @@
 <!--Original code-->
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   @foreach ($errors->all() as $error)
-  <li><strong>{!! session()->get('success')!!}</strong></li>
+  <li><strong>{!! session()->get('error')!!}</strong></li>
  @endforeach
   <!--Original code ends here-->
 </div>

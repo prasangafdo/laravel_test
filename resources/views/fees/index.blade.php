@@ -6,10 +6,10 @@
     <div class="panel-body">
         <ul class="list-group">
              @foreach($fees as $fee)
-             <li class="list-group-item"><a href ="/fees/{{$fee->id}}">{{$fee->student->name}}</li><!-- This will return the full name from the database-->       
+             <li class="list-group-item"><a href ="/fees/{{$fee->id}}">{{$fee->student->name}}</li><!-- This will return the full name from the database-->     
             @endforeach
         </ul>
-        <a class="btn btn-lg btn-primary col-sm-offset-1" href="create">Generate Fees</a>
+        <a class="btn btn-lg btn-primary col-sm-offset-1" href="/fees/create">Generate Fees</a>
     </div>
 </div>
 <hr/>

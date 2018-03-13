@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fee;
+use App\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,7 +28,12 @@ class FeesController extends Controller
      */
     public function create()
     {
-        return view('fees.create');
+        $students = Students::all();
+        // foreach ($students as $student) {
+        //    $student_id = $student->id;
+        // }
+        return view('fees.create', ['students'=>$students]);
+        print($student_id);
     }
 
     /**
@@ -54,8 +60,8 @@ class FeesController extends Controller
             }
         }
         else
-            //return('error');
-            return back()->withInput()->with('errors', 'Error saving data');//Not working
+            return('error');
+            //return back()->withInput()->with('error', 'Error saving data');//Not working
     }
 
     /**
