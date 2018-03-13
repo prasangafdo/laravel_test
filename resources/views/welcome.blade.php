@@ -63,6 +63,8 @@
                 margin-bottom: 30px;
             }
         </style>
+         <script src="js/jquery-3.3.1.min.js"></script>
+         <script src="js/main.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -79,15 +81,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Test1<!--Here comes the name-->
+                    ABC International School<br>
                 </div>
+                <h2>Student Management System</h2>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="/users">Users</a>
+                    <a href="/students">Students</a>
+                    <a href="/fees">Fees</a>
                 </div>
             </div>
         </div>
